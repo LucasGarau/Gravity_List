@@ -2,6 +2,7 @@ package com.example.actividadnueva2;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        WordListAdapter mAdapter = new WordListAdapter( this, mWordList);
+        WordListAdapter mAdapter = new WordListAdapter( this, mWordList,MyDBA);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -161,4 +162,11 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.show();
             }
+
+    public void showFoodOrder() {
+        Intent intent = new Intent(this,OrderActivity.class);
+
+    }
+
+
 }

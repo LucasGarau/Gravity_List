@@ -46,4 +46,9 @@ public class MyDB{
         return mCursor; // iterate to get each value.
     }
 
+    public void deleteItem(String get_ID)
+    {
+        database.execSQL("DELETE FROM Gravity WHERE name='"+get_ID+"'");
+    }
+
 }
