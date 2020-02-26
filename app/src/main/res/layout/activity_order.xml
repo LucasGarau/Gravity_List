@@ -10,15 +10,21 @@
         android:id="@+id/nombre"
         android:layout_width="217dp"
         android:layout_height="32dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="94dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nombre2"
         android:layout_width="217dp"
         android:layout_height="32dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="94dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
 </androidx.constraintlayout.widget.ConstraintLayout>

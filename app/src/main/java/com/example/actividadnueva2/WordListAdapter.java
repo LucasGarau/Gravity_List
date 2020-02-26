@@ -3,11 +3,10 @@ package com.example.actividadnueva2;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.text.InputType;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,10 +21,12 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     private String mCurrent;
     private Context context;
     private MyDB myDBA;
-    public WordListAdapter(Context context, LinkedList<String> wordList, MyDB myDBA) {
+    private Cursor cur;
+    public WordListAdapter(Context context, LinkedList<String> wordList, MyDB myDBA,Cursor curs) {
         mInflater = LayoutInflater.from(context);
         this.mWordList = wordList;
         this.myDBA=myDBA;
+        this.cur=curs;
         this.context=context;
     }
 
@@ -60,7 +61,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
         @Override
         public void onClick(View v) {
-            showFoodOrder();
+            showcontact();
         }
     }
 
@@ -89,13 +90,21 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
         builder.show();
     }
-    public void showFoodOrder() {
-        Intent intent = new Intent(context,OrderActivity.class);
-        intent.putExtra("nombre",name);
-        intent.putExtra("numero",numero);
+    public void showcontact() {
 
+        Intent intent = new Intent(context,OrderActivity.class);
+        cur = myDBA.selectRecords();
+        cur.moveToPosition(Integer.parseInt(mCurrent));
+        String nombre=cur.getString(1);
+        String numero =cur.getString(2);
+        intent.putExtra("nombre",nombre);
+        intent.putExtra("numero",numero);
         context.startActivity(intent);
+        }
+
+
+
+
     }
 
 
-}

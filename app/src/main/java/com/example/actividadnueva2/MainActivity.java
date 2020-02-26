@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        WordListAdapter mAdapter = new WordListAdapter( this, mWordList,MyDBA);
+        WordListAdapter mAdapter = new WordListAdapter( this, mWordList,MyDBA,cur);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         FloatingActionButton fab = findViewById(R.id.fab);
